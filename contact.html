@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="utf-8">
+    <title>Portfolio - Contact</title>
+    <link rel="stylesheet" href="Portfolio.css" media="screen">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/simple-line-icons/2.5.5/css/simple-line-icons.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+
+<body>
+<nav>
+  <ul>
+      <li><a href="index.html">Me connaitre</a></li>
+      <li><a href="project.html">Projets</a></li>
+      <li><a href="interets.html">Centres d'intérêts</a></li>
+      <li class="d1"><a href="contact.html" class="active">Me contacter</a></li>   
+  </ul>
+</nav>
+
+<main class="questionnaire">
+    <h1>Contactez-moi !</h1>
+    <p class="subtitle">Si vous êtes intéressé par mon profil, n'hésitez pas à me laisser un message.</p>
+      
+    <form>
+        <div class="form-grid">
+            <aside class="form-column">
+                <div class="input-group">
+                    <label for="nom">Nom :</label>
+                    <input type="text" id="nom" name="nom" placeholder="Votre nom">
+                </div>
+           
+                <div class="input-group">
+                    <label for="prenom">Prénom :</label>
+                    <input type="text" id="prenom" name="prenom" placeholder="Votre prénom">
+                </div>
+            </aside>
+        
+            <aside class="form-column">
+                <div class="input-group">
+                    <label for="telephone">Numéro de téléphone :</label>
+                    <input type="tel" id="telephone" name="telephone" placeholder="06 00 00 00 00">
+                </div>
+                      
+                <div class="input-group">
+                    <label for="email">Adresse Mail :</label>
+                    <input type="email" id="email" name="email" placeholder="exemple@mail.com">
+                </div>
+            </aside>
+        </div>
+
+        <div class="message-group">
+            <label for="mess">Votre message :</label>
+            <textarea id="mess" name="mess" rows="6" placeholder="Écrivez votre message ici..."></textarea>
+        </div>
+        
+        <div class="btn-container">
+            <button type="submit" class="bouton">Envoyer</button>
+        </div>
+    </form>
+</main>
+
+<footer class="coordonnees-section">
+    <div class="footer-struct-box">
+        <h2 class="footer-main-title">Mes coordonnées</h2>
+        
+        <div class="infos-principales-wrapper">
+            <div class="contact-card card-tel">
+                <i class="icon-phone"></i>
+                <a href="tel:+33769791710" class="meta-item">+33 7 69 79 17 10</a>
+            </div>
+            
+            <div class="contact-card card-email">
+                <i class="icon-envelope-open"></i>
+                <a href="mailto:noemie.guillaume52@gmail.com" class="meta-item">noemie.guillaume52@gmail.com</a>
+            </div>
+            
+            <div class="contact-card card-loc">
+                <i class="icon-location-pin"></i>
+                <span class="meta-item">Grenoble (38)</span>
+            </div>
+        </div>
+        
+        <hr class="footer-divider">
+        
+        <div class="reseaux-sociaux-pins">
+            <a href="#" target="_blank" class="social-pin pin-linkedin" title="LinkedIn">
+                <i class="icon-social-linkedin"></i>
+            </a>
+            <a href="https://www.instagram.com/noemie_gllm_/" target="_blank" class="social-pin pin-instagram" title="Instagram">
+                <i class="icon-social-instagram"></i>
+            </a>
+            <a href="#" target="_blank" class="social-pin pin-discord" title="Discord">
+                <i class="fab fa-discord"></i>
+            </a>
+        </div>
+    </div>
+</footer>
+</body>
+</html>
