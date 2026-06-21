@@ -1,0 +1,57 @@
+/* --- ANIMATION DE FOND (Général) --- */
+html {
+    --s: 140px;
+    --c1: #ac7d63;
+    --c2: #f4d9c6;
+    --_g: #0000 25%, #0008 47%, var(--c1) 53% 147%, var(--c2) 153% 247%, var(--c1) 253% 347%, var(--c2) 353% 447%, var(--c1) 453% 547%, #0008 553%, #0000 575%;
+    --_s: calc(25%/3) calc(25%/4) at 50%;
+    
+    background: radial-gradient(var(--_s) 100%, var(--_g)), 
+                radial-gradient(var(--_s) 100%, var(--_g)) calc(var(--s)/2) calc(3*var(--s)/4), 
+                radial-gradient(var(--_s) 0, var(--_g)) calc(var(--s)/2) 0, 
+                radial-gradient(var(--_s) 0, var(--_g)) 0 calc(3*var(--s)/4), 
+                repeating-linear-gradient(90deg, #cec8ac calc(25%/-6) calc(25%/6), #cec8ac 0 calc(25%/2));
+    background-size: var(--s) calc(3*var(--s)/2);
+    animation: m 20s infinite linear;
+}
+
+@keyframes m {
+    to {
+        background-position: var(--s) 0, calc(var(--s)/-2) calc(3*var(--s)/4), calc(3*var(--s)/2) 0, calc(-1*var(--s)) calc(3*var(--s)/4), 0 0;
+    }
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 16px;
+    color: #333333;
+    margin: 0;
+    padding: 30px 0px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    box-sizing: border-box;
+}
+
+/* --- Bouton Retour --- */
+.retour {
+    display: inline-block;
+    align-self: flex-start;
+    padding: 10px 24px;
+    background-color: #f4d9c6;
+    color: #4a2e2b;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: 700;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+    transition: all 0.3s ease;
+    margin-bottom: 20px;
+}
+
+.retour:hover {
+    background-color: #ffffff;
+    color: #ac7f63;
+    transform: translateX(-4px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.18);
+}

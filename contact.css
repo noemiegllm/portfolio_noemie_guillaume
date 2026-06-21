@@ -1,0 +1,142 @@
+
+/**************** Contact ******************/
+/* Le conteneur principal du formulaire en mode carte blanche moderne */
+.questionnaire {
+    background: rgba(255, 255, 255, 0.96);
+    backdrop-filter: blur(8px);
+    padding: 45px;
+    margin: 0px auto 0px;
+    width: 70%;
+    /*max-width: 900px; */
+    border-radius: 24px;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    box-sizing: border-box;
+}
+
+/* Titre principal "Contactez moi !" */
+.questionnaire h1 {
+    margin-top: 0;
+    margin-bottom: 10px;
+    font-size: 2.2rem; /* Taille fixe pour contrer le xx-large du body */
+    color: #4a2e2b;
+    text-align: center;
+}
+
+/* Texte d'introduction sous le titre */
+.questionnaire p {
+    color: #666666;
+    text-align: center;
+    margin-bottom: 40px;
+    font-size: 1.1rem; /* Redimensionné proprement */
+}
+
+/* Alignement en grille pour mettre les champs côte à côte */
+.questionnaire form .form-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+/* Passage sur deux colonnes dès que l'écran est assez large */
+@media (min-width: 700px) {
+    .questionnaire form .form-grid {
+        flex-direction: row;
+    }
+    .questionnaire aside {
+        flex: 1;
+    }
+}
+
+/* Structure des colonnes de saisie */
+.questionnaire aside {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: auto; /* Annule le width: 45% d'origine pour laisser le flexbox agir */
+}
+
+/* Blocs regroupant un label et son input */
+.input-group, .message-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.message-group {
+    margin-top: 25px;
+}
+
+/* Style des labels */
+.questionnaire label {
+    color: #4a2e2b;
+    font-weight: 600;
+    font-size: 0.95rem; /* Redimensionné proprement */
+    text-align: left !important; /* Force l'alignement à gauche pour tous les labels */
+}
+
+/* Design des champs de texte (Inputs & Textarea) */
+.questionnaire input[type="text"],
+.questionnaire input[type="tel"],
+.questionnaire input[type="email"],
+.questionnaire form textarea {
+    width: 100%; /* Occupe tout l'espace de sa colonne */
+    padding: 14px 16px;
+    border: 2px solid #e2d7d0;
+    background-color: #fdfbfa;
+    border-radius: 12px;
+    font-family: inherit;
+    font-size: 1rem;
+    color: #333333;
+    box-sizing: border-box;
+    transition: all 0.3s ease;
+}
+
+/* Comportement au clic/sélection d'un champ */
+.questionnaire input:focus, 
+.questionnaire textarea:focus {
+    outline: none;
+    border-color: #ac7d63;
+    background-color: #ffffff;
+    box-shadow: 0 0 0 4px rgba(172, 125, 99, 0.15);
+}
+
+/* Ajustement de la zone de message */
+.questionnaire form textarea {
+    resize: vertical; /* Permet d'agrandir uniquement vers le bas */
+}
+
+/* Zone du bouton d'envoi */
+.btn-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 35px;
+}
+
+/* Style du bouton d'envoi */
+.questionnaire button.bouton {
+    background-color: #ac7d63;
+    color: #ffffff;
+    border: none;
+    padding: 14px 40px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    border-radius: 30px;
+    cursor: pointer;
+    box-shadow: 0 5px 15px rgba(172, 125, 99, 0.3);
+    transition: all 0.3s ease;
+    margin: 0; /* Réinitialise les marges d'origine */
+}
+
+/* Effets au survol et clic du bouton */
+.questionnaire button.bouton:hover {
+    background-color: #4a2e2b;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(74, 46, 43, 0.3);
+}
+
+.questionnaire button.bouton:active {
+    transform: translateY(0);
+    filter: none;
+}
+

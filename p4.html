@@ -2,102 +2,80 @@
 <html lang="fr">
 <head>
     <meta charset="utf-8">
-    <title>Portfolio</title>
+    <title>Portfolio - Implémentation d’un besoin client</title>
     <link rel="stylesheet" href="p.css" media="screen">
+    <link rel="stylesheet" href="footer.css" media="screen">
+    <link rel="stylesheet" href="fond.css">
+    <link rel="stylesheet" href="lightbox.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/simple-line-icons/2.5.5/css/simple-line-icons.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-
-    <style>
-    .lightbox {
-        display: none;
-        position: fixed;
-        z-index: 9999;
-        top: 0; left: 0;
-        width: 100%; height: 100%;
-        background-color: rgba(0, 0, 0, 0.9);
-        justify-content: center;
-        align-items: center;
-    }
-    .lightbox.active { display: flex; }
-    .lightbox img { max-width: 90%; max-height: 85%; border-radius: 12px; }
-    .lightbox-close {
-        position: absolute; top: 20px; right: 30px;
-        color: white; font-size: 50px; cursor: pointer;
-    }
-</style>
 </head>
 
 <body>
 
-    <a href="project.html">Retour</a>
     <main class="p1">
-        <img src="debian_rond.png" alt="logo debian">
-        <article>
-            <h1>Installation d’un poste pour le développement</h1>
-            <ul>
-                <li class="icon icon-people"> Individuel</li>
-                <li><strong>Compétences techniques : </strong></li>
-                <li>Maîtrise de la console Linux</li>
-                <li><strong>Date : </strong></li>
-                <li>2024</li>
-                <li><strong>Le projet en quelques mots : </strong></li>
-                <li id="text">J’ai appris à installer et configurer un poste de travail ainsi que des outils de développement sur une machine virtuelle. J’ai installé les systèmes d’exploitation Debian 11 et Debian 12 ainsi que les IDE NetBean et IntelliJ IDEA. <br> L’objectif était d’être capable de le faire en autonomie et d’être capable de créer une carte mentale explicative de l’installation. <br>Le projet s’est déroulé sur 3 jours.</li>
-            </ul>
-            <p><strong>Le projet en images : </strong></p>
-            <section class="galerie">
-                <img src="debian1.png" alt="Installation Debian 1">
-                <img src="debian2.png" alt="Installation Debian 2">
-            </section>
-        </article>
+        <a class="retour" href="project.html">Retour</a>
+        <section class="content">
+            <img src="ia_rond.png" alt="logo projet">
+            <article>
+                <h1>Implémentation d’un besoin client / Comparaison d’approches algorithmiques</h1>
+                <ul>
+                    <li class="icon icon-people"> Individuel / Groupe</li>
+                    <li><strong>Compétences techniques : </strong></li>
+                    <li>Algorithmique, Analyse de complexité, Python/Java</li>
+                    <li><strong>Date : </strong></li>
+                    <li>2024</li>
+                    <li><strong>Le projet en quelques mots : </strong></li>
+                    <li id="text">
+                        Ce projet consistait à répondre à un besoin client spécifique en optimisant des traitements de données. 
+                        Nous avons dû comparer différentes approches algorithmiques pour déterminer la solution la plus performante 
+                        en termes de temps d'exécution et de consommation mémoire.
+                    </li>
+                </ul>
+                <p><strong>Le projet en images : </strong></p>
+                <section class="galerie">
+                    <img src="algo1.png" alt="resultat final">
+                    <img src="algo2.png" alt="Extrait de CR">
+                </section>
+            </article>
+        </section>
     </main>
 
-    <footer class="coordonnees-section">
-        <div class="footer-struct-box">
-            <h2 class="footer-main-title">Mes coordonnées</h2>
-            <div class="infos-principales-wrapper">
-                <div class="contact-card card-tel">
-                    <i class="icon-phone"></i>
-                    <a href="tel:+33769791710" class="meta-item">+33 7 69 79 17 10</a>
-                </div>
-                <div class="contact-card card-email">
-                    <i class="icon-envelope-open"></i>
-                    <a href="mailto:noemie.guillaume52@gmail.com" class="meta-item">noemie.guillaume52@gmail.com</a>
-                </div>
-                <div class="contact-card card-loc">
-                    <i class="icon-location-pin"></i>
-                    <span class="meta-item">Grenoble (38)</span>
-                </div>
-            </div>
-            <hr class="footer-divider">
-            <div class="reseaux-sociaux-pins">
-                <a href="#" target="_blank" class="social-pin pin-linkedin" title="LinkedIn"><i class="icon-social-linkedin"></i></a>
-                <a href="https://www.instagram.com/noemie_gllm_/" target="_blank" class="social-pin pin-instagram" title="Instagram"><i class="icon-social-instagram"></i></a>
-                <a href="#" target="_blank" class="social-pin pin-discord" title="Discord"><i class="fab fa-discord"></i></a>
-            </div>
-        </div>
-    </footer>
+    <div id="footer-placeholder"></div>
+
+    <script>
+        fetch('footer.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('footer-placeholder').innerHTML = data;
+            });
+    </script>
 
     <div id="lightbox" class="lightbox">
         <span class="lightbox-close">&times;</span>
-        <img id="lightbox-img" src="" alt="Image en grand">
+        <img id="lightbox-img" src="" alt="Image agrandie">
     </div>
 
     <script>
-    const lightbox = document.getElementById("lightbox");
-    const lightboxImg = document.getElementById("lightbox-img");
-    const images = document.querySelectorAll(".galerie img");
+        document.addEventListener("DOMContentLoaded", function() {
+            const lightbox = document.getElementById("lightbox");
+            const lightboxImg = document.getElementById("lightbox-img");
+            const galleryImages = document.querySelectorAll(".galerie img");
 
-    images.forEach(img => {
-        img.addEventListener("click", () => {
-            lightbox.classList.add("active");
-            lightboxImg.src = img.src;
+            galleryImages.forEach(image => {
+                image.style.cursor = "zoom-in";
+                image.addEventListener("click", function() {
+                    lightboxImg.src = this.src;
+                    lightbox.classList.add("active");
+                });
+            });
+
+            lightbox.addEventListener("click", function(e) {
+                if (e.target !== lightboxImg) {
+                    lightbox.classList.remove("active");
+                }
+            });
         });
-    });
-
-    // Fermer
-    lightbox.addEventListener("click", () => {
-        lightbox.classList.remove("active");
-    });
-</script>
+    </script>
 </body>
 </html>

@@ -1,0 +1,106 @@
+/* ==========================================================================
+   FOOTER - STYLES OPTIMISÉS
+   ========================================================================== */
+
+#footer-placeholder {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+/* Conteneur principal */
+.coordonnees-section {
+    width: 90%;
+    max-width: 1300px;
+    box-sizing: border-box;
+}
+
+/* Bloc structuré du footer */
+.footer-struct-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    width: 100%;
+    padding: 30px;
+    margin-top: 35px;
+    background-color: #976a56;
+    border-radius: 20px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+    box-sizing: border-box;
+}
+
+/* Wrapper des infos texte */
+.infos-principales-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+    justify-content: center;
+    color: white;
+}
+
+@media (min-width: 850px) {
+    .infos-principales-wrapper {
+        flex-direction: row;
+        gap: 15px;
+        align-items: flex-start;
+    }
+    
+    /* Récupération de l'alignement horizontal si nécessaire */
+    .footer-struct-box {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+}
+
+/* Carte contact simplifiée */
+.contact-card {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.contact-card i {
+    font-size: 1rem;
+    color: #976a56; /* Note : Si le fond est marron, assurez-vous que cette couleur reste visible */
+}
+
+.contact-card a, 
+.contact-card span,
+.meta-item {
+    font-size: 0.95rem;
+    color: white; /* Harmonisé en blanc pour lisibilité sur fond marron */
+    text-decoration: none;
+}
+
+.btn-contact{
+    align-self: flex-start;
+    padding: 0px 6px;
+    background-color: transparent;
+    border-radius: 30px;
+    text-decoration: none;
+    color: white;
+}
+
+.btn-contact:hover {
+    border: 1px white solid;
+
+}
+
+.btn-contact>a{
+    text-decoration: none;
+    color: white;
+}
+
+/* Réseaux sociaux */
+.reseaux-sociaux-pins {
+    display: flex;
+    gap: 15px;
+}
+
+.social-pin {
+    color: #eeeceb;
+    text-decoration: none;
+    font-size: 1.2rem;
+}
