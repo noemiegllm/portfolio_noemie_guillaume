@@ -1,0 +1,60 @@
+/***************Barre de recherche******************/
+.container1{
+  display: flex;
+  justify-content:center;
+}
+
+.container1 > nav ul{
+  display: flex;
+  background-color: #067aed;
+  padding: 0;
+  list-style: none;
+  border-radius: 0;
+  width: 100%;
+  justify-content: center;
+  position: relative;
+}
+
+.container1 > nav ul> li{
+  width: 30%;
+  text-align: center;
+  padding: 15px;
+
+}
+
+.container1>nav>ul>li:hover{
+  background-color: aquamarine;
+}
+
+.container1>nav>ul>li a{
+    font-family: Arial, Helvetica, sans-serif;
+    color:white;
+    font-size: 130%;
+    text-decoration: none;
+    padding-top: 1em;
+    padding-right: 2em;
+    padding-bottom: 1em;
+    padding-left: 2em;
+}
+
+/*******************ACTIVITES DEROULANTES******************/
+.container1>nav>ul>li>article{/*règles toutes les activités*/
+  display: none;
+  background-color: grey;
+  position: absolute;
+  width: 100%;
+  left: 0;
+  height: 600px;
+  margin-top: 15.5px;
+}
+
+.container1>nav>ul>li:hover>article{
+  display: flex;
+  flex-direction: row;
+}
+
+.container1 #diplomes>article{ /*diplome par défaut affichées*/
+  background-color: blueviolet;
+  margin-top: 41px;  
+  display: block;
+}
