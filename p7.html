@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="utf-8">
+    <title>Portfolio - Création et déploiement d'une application</title>
+    <link rel="stylesheet" href="p.css" media="screen">
+    <link rel="stylesheet" href="footer.css" media="screen">
+    <link rel="stylesheet" href="fond.css">
+    <link rel="stylesheet" href="lightbox.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/simple-line-icons/2.5.5/css/simple-line-icons.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+
+<body>
+
+    <main class="p1">
+        <a class="retour" href="project.html">Retour</a>
+        <section class="content">
+            <img src="gir_tevoir.png" alt="logo application">
+            <article>
+                <h1>Création et déploiement d'une application</h1>
+                <ul>
+                    <li class="icon icon-people"> Groupe de 6</li>
+                    <li><strong>Compétences techniques : </strong></li>
+                    <li>PHP, GitLab, HTML, CSS, SQL, Docker</li>
+                    <li><strong>Date : </strong></li>
+                    <li>2025-2026</li>
+                    <li><strong>Le projet en quelques mots : </strong></li>
+                    <li id="text">Ce projet consiste à développer une application web d'aide et de soutien pour les aidants familiaux et les personnes dépendantes. L'objectif est de simplifier les démarches administratives et financières complexes à travers un cercle familial partagé, un suivi de budget automatique, un simulateur d'aides financières et un chatbot d'assistance. Pour ce faire, nous avons eu plusieurs séances de cadrage pour développer nos idées, puis trois semaines pour l'implémenter. Nous avons étudié les aspects juridiques, organisationnels, technologiques, ergonomiques et commerciaux.</li>
+                </ul>
+                <p><strong>Le projet en images : </strong></p>
+                <section class="galerie">
+                    <img src="maquette_sae103.png" alt="Maquette application">
+                    <img src="resultat_2_sae103.png" alt="Résultat 2 application">
+                    <img src="resultat_1_sae103.png" alt="Résultat 1 application">
+                </section>
+            </article>
+        </section>
+    </main>
+
+    <div id="footer-placeholder"></div>
+
+    <script>
+        fetch('footer.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('footer-placeholder').innerHTML = data;
+            });
+    </script>
+
+    <div id="lightbox" class="lightbox">
+        <span class="lightbox-close">&times;</span>
+        <img id="lightbox-img" src="" alt="Image en grand">
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const lightbox = document.getElementById("lightbox");
+            const lightboxImg = document.getElementById("lightbox-img");
+            const galleryImages = document.querySelectorAll(".galerie img");
+
+            galleryImages.forEach(image => {
+                image.style.cursor = "zoom-in";
+                image.addEventListener("click", function(e) {
+                    e.preventDefault(); 
+                    lightboxImg.src = this.src;
+                    lightboxImg.alt = this.alt;
+                    lightbox.classList.add("active");
+                });
+            });
+
+            lightbox.addEventListener("click", function(e) {
+                if (e.target !== lightboxImg) {
+                    lightbox.classList.remove("active");
+                    setTimeout(() => { lightboxImg.src = ""; }, 300);
+                }
+            });
+        });
+    </script>
+</body>
+</html>

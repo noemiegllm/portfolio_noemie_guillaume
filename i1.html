@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="utf-8">
+    <title>Portfolio - Crochet</title>
+    <link rel="stylesheet" href="i.css" media="screen">
+    <link rel="stylesheet" href="footer.css">
+    <link rel="stylesheet" href="fond.css">
+    <link rel="stylesheet" href="lightbox.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/simple-line-icons/2.5.5/css/simple-line-icons.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+
+<body>
+
+    <main class="i1">
+        <a class="retour" href="interets.html">Retour</a>
+        
+        <section class="content">
+            <img src="crochet.png" alt="crochet">
+            
+            <article>
+                <h1>Crochet</h1>
+                <ul>
+                    <li class="icon icon-calendar"> Depuis 4 ans</li>
+                    <li><strong>Pratique : </strong>Quotidienne</li>
+                    <li><strong>Moi et le crochet en quelques mots : </strong></li>
+                    <li id="text">Le crochet est une technique artisanale qui permet de confectionner toutes sortes d'ouvrages en mailles (des vêtements, des peluches, des couvertures,.).<br>Je pratique le crochet de manière régulière. Dès que j'ai du temps libre, je pratique. C'est un passe-temps que je fais pour me créer des pièces mais également comme cadeaux pour mes proches.</li>
+                </ul>
+                
+                <p><strong>Mes photos : </strong></p>
+                <section class="galerie">
+                    <img src="crochet1.jpg" alt="crochet 1">
+                    <img src="crochet2.jpg" alt="crochet 2">
+                    <img src="crochet3.jpg" alt="crochet 3">
+                </section>
+            </article>
+        </section>
+    </main>
+
+    <div id="footer-placeholder"></div>
+
+    <script>
+        fetch('footer.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('footer-placeholder').innerHTML = data;
+            });
+    </script>
+
+    <div id="lightbox" class="lightbox">
+        <span class="lightbox-close">&times;</span>
+        <img id="lightbox-img" src="" alt="Image en grand">
+    </div>
+
+    <script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const lightbox = document.getElementById("lightbox");
+        const lightboxImg = document.getElementById("lightbox-img");
+        
+        // Cette ligne cherche toutes les images DANS une classe .galerie
+        const galleryImages = document.querySelectorAll(".galerie img");
+
+        galleryImages.forEach(image => {
+            image.style.cursor = "zoom-in";
+
+            image.addEventListener("click", function(e) {
+                e.preventDefault(); 
+                lightboxImg.src = this.src;
+                lightboxImg.alt = this.alt;
+                lightbox.classList.add("active");
+            });
+        });
+
+        // Fermer au clic sur le fond sombre
+        lightbox.addEventListener("click", function(e) {
+            if (e.target !== lightboxImg) {
+                lightbox.classList.remove("active");
+                setTimeout(() => { lightboxImg.src = ""; }, 300);
+            }
+        });
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="utf-8">
+    <title>Portfolio - Ski</title>
+    <link rel="stylesheet" href="i.css" media="screen">
+    <link rel="stylesheet" href="footer.css">
+    <link rel="stylesheet" href="fond.css">
+    <link rel="stylesheet" href="lightbox.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/simple-line-icons/2.5.5/css/simple-line-icons.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+
+<body>
+
+    <main class="i1">
+        <a class="retour" href="interets.html">Retour</a>
+        
+        <section class="content">
+            <img src="ski.png" alt="ski">
+            
+            <article>
+                <h1>Ski de piste</h1>
+                <ul>
+                    <li class="icon icon-calendar"> Depuis l'enfance</li>
+                    <li><strong>Pratique : </strong>Annuelle</li>
+                    <li><strong>Moi et le ski en quelques mots : </strong></li>
+                    <li id="text">Le ski de piste consiste à descendre les pistes de ski, balisées et damées en effectuant des virages dérapés.<br> Depuis que je suis enfant, je suis habituée à faire du ski durant l'hiver. Je le pratique le plus souvent en famille ou entre amis pour partager des journées conviviales en extérieure.</li>
+                </ul>
+                
+                <p><strong>Mes photos : </strong></p>
+                <section class="galerie">
+                    <img src="ski1.jpg" alt="ski 1">
+                    <img src="ski2.jpg" alt="ski 2">
+                    <img src="ski3.jpg" alt="ski 3">
+                </section>
+            </article>
+        </section>
+    </main>
+
+    <div id="footer-placeholder"></div>
+
+    <script>
+        fetch('footer.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('footer-placeholder').innerHTML = data;
+            });
+    </script>
+
+    <div id="lightbox" class="lightbox">
+        <span class="lightbox-close">&times;</span>
+        <img id="lightbox-img" src="" alt="Image en grand">
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const lightbox = document.getElementById("lightbox");
+            const lightboxImg = document.getElementById("lightbox-img");
+            const galleryImages = document.querySelectorAll(".galerie img");
+
+            galleryImages.forEach(image => {
+                image.style.cursor = "zoom-in";
+                image.addEventListener("click", function(e) {
+                    e.preventDefault(); 
+                    lightboxImg.src = this.src;
+                    lightboxImg.alt = this.alt;
+                    lightbox.classList.add("active");
+                });
+            });
+
+            lightbox.addEventListener("click", function(e) {
+                if (e.target !== lightboxImg) {
+                    lightbox.classList.remove("active");
+                    setTimeout(() => { lightboxImg.src = ""; }, 300);
+                }
+            });
+        });
+    </script>
+</body>
+</html>

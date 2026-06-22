@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="utf-8">
+    <title>Portfolio - Gaming</title>
+    <link rel="stylesheet" href="i.css" media="screen">
+    <link rel="stylesheet" href="footer.css">
+    <link rel="stylesheet" href="fond.css">
+    <link rel="stylesheet" href="lightbox.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/simple-line-icons/2.5.5/css/simple-line-icons.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+
+<body>
+
+    <main class="i1">
+        <!-- Bouton retour intégré -->
+        <a class="retour" href="interets.html">Retour</a>
+        
+        <section class="content">
+            <!-- Image du gaming -->
+            <img src="gaming.png" alt="gaming">
+            
+            <article>
+                <h1>Gaming</h1>
+                <ul>
+                    <li class="icon icon-calendar"> Depuis 7 ans</li>
+                    <li><strong>Pratique : </strong>Mensuelle</li>
+                    <li><strong>Moi et les jeux vidéo en quelques mots : </strong></li>
+                    <li id="text">Le gaming est une activité dans laquelle on joue à des jeux vidéos.<br> J'ai découvert les jeux vidéos au début de l'adolescence. J'ai eu l'occasion avec les années de découvrir toutes sortent de jeux vidéos. S'en était devenu l'une de mes principales passion. Aujourd'hui je pratique moins mais j'aime me retrouver avec mes amis pour jouer.</li>
+                </ul>
+            </article>
+        </section>
+    </main>
+
+    <div id="footer-placeholder"></div>
+
+    <script>
+        fetch('footer.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('footer-placeholder').innerHTML = data;
+            });
+    </script>
+</body>
+</html>

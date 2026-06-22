@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="utf-8">
+    <title>Portfolio - Randonnée</title>
+    <link rel="stylesheet" href="i.css" media="screen">
+    <link rel="stylesheet" href="footer.css">
+    <link rel="stylesheet" href="fond.css">
+    <link rel="stylesheet" href="lightbox.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/simple-line-icons/2.5.5/css/simple-line-icons.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+
+<body>
+
+    <main class="i1">
+        <a class="retour" href="interets.html">Retour</a>
+        
+        <section class="content">
+            <img src="randonnee.png" alt="randonnee">
+            
+            <article>
+                <h1>Randonnée</h1>
+                <ul>
+                    <li class="icon icon-calendar"> Depuis la petite enfance</li>
+                    <li><strong>Pratique : </strong>Semestrielle</li>
+                    <li><strong>Moi et la randonnée en quelques mots : </strong></li>
+                    <li id="text">La randonnée est une pratique physique qui consiste à effectuer une marche plus ou moins longue.<br> Depuis que je suis enfant, je suis habituée à faire de la randonnée. Je la pratique le plus souvent en famille pour partager un moment convivial devant un beau point de vue.</li>
+                </ul>
+                
+                <p><strong>Mes photos : </strong></p>
+                <section class="galerie">
+                    <img src="rando1.jpg" alt="randonnee 1">
+                    <img src="rando2.jpg" alt="randonnee 2">
+                    <img src="rando3.jpg" alt="randonnee 3">
+                </section>
+            </article>
+        </section>
+    </main>
+
+    <div id="footer-placeholder"></div>
+
+    <script>
+        fetch('footer.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('footer-placeholder').innerHTML = data;
+            });
+    </script>
+
+    <div id="lightbox" class="lightbox">
+        <span class="lightbox-close">&times;</span>
+        <img id="lightbox-img" src="" alt="Image en grand">
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const lightbox = document.getElementById("lightbox");
+            const lightboxImg = document.getElementById("lightbox-img");
+            const galleryImages = document.querySelectorAll(".galerie img");
+
+            galleryImages.forEach(image => {
+                image.style.cursor = "zoom-in";
+                image.addEventListener("click", function(e) {
+                    e.preventDefault(); 
+                    lightboxImg.src = this.src;
+                    lightboxImg.alt = this.alt;
+                    lightbox.classList.add("active");
+                });
+            });
+
+            lightbox.addEventListener("click", function(e) {
+                if (e.target !== lightboxImg) {
+                    lightbox.classList.remove("active");
+                    setTimeout(() => { lightboxImg.src = ""; }, 300);
+                }
+            });
+        });
+    </script>
+</body>
+</html>

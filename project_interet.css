@@ -1,0 +1,63 @@
+.acceuil {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+    background-color: #fbf8f7;
+    padding: 35px;
+    width: 90%;
+    max-width: 1400px;
+    margin: 0px auto;
+    border-radius: 12px;
+}
+
+/* Style des cartes */
+.acceuil article {
+    display: flex;
+    flex-direction: column;
+    width: 280px;
+    height: 250px; /* Hauteur fixe identique pour toutes les cartes */
+    background-color: #fff;
+    border: 1px solid #a87e67;
+    border-radius: 10px;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-align: center;
+}
+
+/* Lien */
+.acceuil article a {
+    text-decoration: none;
+    color: black;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.acceuil>article:hover{
+    border: 2px solid #695043;
+
+}
+
+/* Images : ajustées pour laisser plus de place au titre */
+.acceuil article img {
+    width: 50%; /* Réduit un peu la taille pour équilibrer */
+    object-fit: contain;
+    margin: 15px auto 10px auto; /* Centrage automatique */
+}
+
+/* Titre : Fond marron, texte blanc, toujours en bas */
+.acceuil article h1 {
+    font-size: 0.9rem;
+    margin: 0;
+    padding: 15px 10px;
+    background-color: #a87e67;
+    color: white;
+    height: 80px; /* Hauteur fixe pour que le bloc marron soit identique partout */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1.2;
+    margin-top: auto; /* Pousse le titre tout en bas de la carte */
+}

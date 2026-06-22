@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="utf-8">
+    <title>Portfolio</title>
+    <link rel="stylesheet" href="p.css" media="screen">
+    <link rel="stylesheet" href="footer.css" media="screen">
+    <link rel="stylesheet" href="fond.css">
+    <link rel="stylesheet" href="lightbox.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/simple-line-icons/2.5.5/css/simple-line-icons.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+
+<body>
+
+    <main class="p1">
+        <a class="retour" href="project.html">Retour</a>
+        <section class="content">
+            <img src="eco_rond.png" alt="logo projet">
+            <article>
+                <h1>Recueil de besoins / Découverte de l’environnement économique et écologique / Création d’un site web</h1>
+                <ul>
+                    <li class="icon icon-people"> Groupe de 3</li>
+                    <li><strong>Compétences techniques : </strong></li>
+                    <li>HTML, CSS</li>
+                    <li><strong>Date : </strong></li>
+                    <li>2024-2025</li>
+                    <li><strong>Le projet en quelques mots : </strong></li>
+                    <li id="text">Nous avons rencontré une entreprise cliente qui nous a sollicitée pour créer un site web visant à vulgariser leur activité pour des jeunes étudiants en quête de stage. <br>Le site devait être sobre écologiquement et visuellement. Nous avons donc effectué une recherche approfondie pour simplifier et rendre accessibles les informations présentes sur le site du client. Après avoir vulgarisé ces informations, nous avons organisé une nouvelle rencontre avec nos clients pour recueillir leurs retours et leurs demandes spécifiques pour le site. <br>Le projet a été conclu par une présentation du site web final et de ses fonctionnalités à nos clients.</li>
+                </ul>
+                <p><strong>Le projet en images : </strong></p>
+                <section class="galerie">
+                    <img src="atos1.png" alt="Atos 1">
+                    <img src="atos2.png" alt="Atos 2">
+                    <img src="atos3.png" alt="Atos 3">
+                </section>
+            </article>
+        </section>
+    </main>
+
+    <div id="footer-placeholder"></div>
+
+    <script>
+        fetch('footer.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('footer-placeholder').innerHTML = data;
+            });
+    </script>
+
+    <div id="lightbox" class="lightbox">
+        <span class="lightbox-close">&times;</span>
+        <img id="lightbox-img" src="" alt="Image en grand">
+    </div>
+
+    <script>
+        const lightbox = document.getElementById("lightbox");
+        const lightboxImg = document.getElementById("lightbox-img");
+        const images = document.querySelectorAll(".galerie img");
+
+        images.forEach(img => {
+            img.addEventListener("click", () => {
+                lightbox.classList.add("active");
+                lightboxImg.src = img.src;
+            });
+        });
+
+        // Fermer la lightbox
+        lightbox.addEventListener("click", () => {
+            lightbox.classList.remove("active");
+        });
+    </script>
+</body>
+</html>

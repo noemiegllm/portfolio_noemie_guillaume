@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="utf-8">
+    <title>Portfolio - Développement d'application</title>
+    <link rel="stylesheet" href="p.css" media="screen">
+    <link rel="stylesheet" href="footer.css" media="screen">
+    <link rel="stylesheet" href="fond.css">
+    <link rel="stylesheet" href="lightbox.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/simple-line-icons/2.5.5/css/simple-line-icons.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+
+<body>
+
+    <main class="p1">
+        <a class="retour" href="project.html">Retour</a>
+        <section class="content">
+            <img src="synfony_logo.webp" alt="logo Symfony">
+            <article>
+                <h1>Développement d'une application complexe</h1>
+                <ul>
+                    <li class="icon icon-people"> Groupe de 5</li>
+                    <li><strong>Compétences techniques : </strong></li>
+                    <li>Symfony, Android, Git, SQL, Docker</li>
+                    <li><strong>Date : </strong></li>
+                    <li>2026</li>
+                    <li><strong>Le projet en quelques mots : </strong></li>
+                    <li id="text">Ce projet consistait à stabiliser et fiabiliser une application existante de gestion de stages pour les étudiants et les enseignants. L'objectif principal était de corriger les nombreux défauts techniques et ergonomiques de l'outil afin d'assurer sa pérennité. Pour y parvenir, nous avons réorganisé la base de données, corrigé la navigation mobile, intégré des graphiques visuels dans le back office et automatisé l'import d'offres de stage depuis des fichiers CSV. Finalement, ce projet nous a permis de sécuriser l'application en écrivant de nombreux tests.</li>
+                </ul>
+                <p><strong>Le projet en images : </strong></p>
+                <section class="galerie">
+                    <img src="resultat_sae401.png" alt="Résultat SAE 401">
+                </section>
+            </article>
+        </section>
+    </main>
+
+    <div id="footer-placeholder"></div>
+
+    <script>
+        fetch('footer.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('footer-placeholder').innerHTML = data;
+            });
+    </script>
+
+    <div id="lightbox" class="lightbox">
+        <span class="lightbox-close">&times;</span>
+        <img id="lightbox-img" src="" alt="Image en grand">
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const lightbox = document.getElementById("lightbox");
+            const lightboxImg = document.getElementById("lightbox-img");
+            const galleryImages = document.querySelectorAll(".galerie img");
+
+            galleryImages.forEach(image => {
+                image.style.cursor = "zoom-in";
+                image.addEventListener("click", function(e) {
+                    e.preventDefault(); 
+                    lightboxImg.src = this.src;
+                    lightboxImg.alt = this.alt;
+                    lightbox.classList.add("active");
+                });
+            });
+
+            lightbox.addEventListener("click", function(e) {
+                if (e.target !== lightboxImg) {
+                    lightbox.classList.remove("active");
+                    setTimeout(() => { lightboxImg.src = ""; }, 300);
+                }
+            });
+        });
+    </script>
+</body>
+</html>

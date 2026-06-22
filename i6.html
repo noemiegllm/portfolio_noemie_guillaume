@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="utf-8">
+    <title>Portfolio - Sport</title>
+    <link rel="stylesheet" href="i.css" media="screen">
+    <link rel="stylesheet" href="footer.css">
+    <link rel="stylesheet" href="fond.css">
+    <link rel="stylesheet" href="lightbox.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/simple-line-icons/2.5.5/css/simple-line-icons.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+
+<body>
+
+    <main class="i1">
+        <!-- Bouton retour intégré au bloc blanc -->
+        <a class="retour" href="interets.html">Retour</a>
+        
+        <section class="content">
+            <!-- Image du sport -->
+            <img src="sports.png" alt="sport">
+            
+            <article>
+                <h1>Sport</h1>
+                <ul>
+                    <li class="icon icon-calendar"> Depuis l'enfance</li>
+                    <li><strong>Pratique : </strong>Bihebdomadaire</li>
+                    <li><strong>Moi et le sport en quelques mots : </strong></li>
+                    <li id="text">Je pratique une activité physique régulière depuis l'âge de 6 ans. J'ai fait de l'escalade, de l'équitation, du crossfit, du kickboxing, de la course à pied et aujourd'hui de la musculation.<br>J'ai toujours aimé faire du sport car j'ai besoin d'être active et de me défouler. Je suis toujours curieuse de découvrir de nouveaux sports.</li>
+                </ul>
+            </article>
+        </section>
+    </main>
+
+    <div id="footer-placeholder"></div>
+
+    <script>
+        fetch('footer.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('footer-placeholder').innerHTML = data;
+            });
+    </script>
+</body>
+</html>

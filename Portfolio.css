@@ -1,0 +1,335 @@
+/* ==========================================================================
+   MODIFICATIONS DESIGN : PREMIÈRE PAGE & BLOC STATIQUE
+   ========================================================================== */
+
+.acceuil {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 35px;
+    width: 90%;
+    max-width: 1400px; /* Aligné sur la largeur demandée */
+    margin: 0px auto;
+    background: rgba(255, 255, 255, 0.95); /* Grand fond blanc moderne protecteur */
+    backdrop-filter: blur(8px);
+    padding: 35px;
+    border-radius: 24px;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    box-sizing: border-box;
+}
+
+/* Ta photo de profil en rond */
+.acceuil > img {
+    border-radius: 50%; 
+    box-shadow: 0 8px 25px rgba(151, 106, 86, 0.25);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    object-fit: cover;
+    display: block;
+    margin: 0 auto;
+}
+
+.acceuil > img:hover {
+    transform: scale(1.03);
+    box-shadow: 0 12px 30px rgba(151, 106, 86, 0.35);
+}
+
+/* Liste de tes infos personnelles */
+.acceuil > ul {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    list-style: none;
+    padding: 0;
+    margin: 0 0 15px 0;
+    gap: 10px;
+}
+
+/* Prénom Nom */
+.acceuil > ul > li:first-child {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #4a2e2b;
+}
+
+/* Âge */
+.acceuil > ul > li:nth-child(2) {
+    font-size: 1.2rem;
+    color: #ac7d63;
+    font-weight: 600;
+}
+
+/* Métier envisagé */
+.acceuil > ul > li:last-child {
+    font-size: 1.1rem;
+    color: #555555;
+    background-color: #f4d9c6;
+    padding: 6px 18px;
+    border-radius: 20px;
+    font-weight: 600;
+    margin-top: 5px;
+}
+
+/* --- LE BLOC ACTIVITÉ (LES 3 CARTES) --- */
+#activite {
+    width: 100%;
+    max-width: 1200px;
+    margin: 15px 0 0 0;
+    padding: 0;
+    box-sizing: border-box;
+    background: transparent; 
+    box-shadow: none;
+    border: none;
+}
+
+.container-statique {
+    display: flex;
+    flex-direction: column;
+    gap: 25px; 
+    width: 100%;
+}
+
+@media (min-width: 950px) {
+    .container-statique {
+        flex-direction: row; 
+        justify-content: space-between;
+        align-items: stretch; 
+    }
+}
+
+.carte-info {
+    flex: 1; 
+    background-color: #ffffff; 
+    border: 1px solid #f4d9c6;
+    border-radius: 16px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.03);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.9s ease, box-shadow 0.9s ease;
+}
+
+.carte-info:hover {
+    /*transform: translateY(-5px);*/
+    box-shadow: 0 12px 25px rgba(172, 125, 99, 0.15);
+    border-color: #ac7d63;
+}
+
+.carte-info h2 {
+    color: #ffffff; 
+    font-size: 1.15rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    text-align: center;
+    margin: 0;
+    padding: 16px;
+    background-color: #ac7d63; 
+}
+
+.contenu-carte {
+    background-color: #ffffff; 
+    padding: 25px;
+    flex-grow: 1; 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.contenu-carte p {
+    font-size: 1.05rem;
+    line-height: 1.6;
+    margin: 0;
+    text-align: center;
+    color: #444;
+}
+
+.contenu-carte p strong {
+    color: #4a2e2b;
+}
+
+.sub-text {
+    font-size: 0.9rem;
+    color: #777;
+    display: block;
+    margin-top: 8px;
+    font-style: italic;
+}
+
+.contenu-carte table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.contenu-carte td {
+    padding: 10px 0;
+    font-size: 1rem;
+    color: #444;
+    border-bottom: 1px solid #f4d9c6;
+}
+
+.carte-info tr:last-child td {
+    border-bottom: none;
+}
+
+.contenu-carte td:last-child {
+    text-align: right;
+    font-weight: bold;
+    color: #ac7d63;
+}
+
+.grid-tech {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* Aligné proprement sur 4 colonnes */
+    gap: 15px;
+    justify-items: center;
+    align-items: center;
+}
+
+.grid-tech img {
+    width: 42px;
+    height: 42px;
+    object-fit: contain;
+    transition: transform 0.2s ease;
+}
+
+.grid-tech img:hover {
+    transform: scale(1.25);
+}
+
+
+/* ==========================================================================
+   LE RESTE DE TON CSS D'ORIGINE (INCHANGÉ)
+   ========================================================================== */
+
+.article>section{
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.article>section:hover{
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+}
+
+.acceuil>article{
+    display: flex;
+    flex-direction: row;
+    gap: 3em;
+}
+
+@media screen and (max-width: 925px) {
+ .article{
+    flex-direction: column;
+    flex-wrap: wrap;
+    }
+
+  .interets, .project {
+    flex-direction: column !important;
+    flex-wrap: wrap ;
+    align-items: center ;
+    margin: 0;
+  }
+
+  .interets > article , .project>article{
+    width: 50% !important;
+  }
+  
+  /* Ajout historique de ta partie basse mobile */
+  .container-statique {
+    flex-direction: column;
+    gap: 1.5em;
+  }
+}
+
+main>article>section {
+    margin: auto;
+    margin-top: 0;
+    flex-grow: 1;
+    flex-shrink: 1;
+    background-color: #ac7d63; 
+    min-height: 200px; 
+    border-radius: 11px;
+    padding: 20px; 
+    box-sizing: border-box;
+}
+
+main>article>section>h1 {
+    text-align: center;
+}
+
+.article {
+    display: flex;
+    gap: 3em;          
+    align-items: stretch; 
+}
+
+.article > section {
+    flex: 1;
+    background-color: #f3e1d4;
+    border-radius: 11px;
+    padding: 8px;
+    box-sizing: border-box;
+}
+
+/* ==========================================================================
+   3. BARRE DE NAVIGATION HEADER (NAV)
+   ========================================================================== */
+body > nav {
+    width: 90%;
+    max-width: 1400px;
+    margin: 0 auto 30px auto;
+    background: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(5px);
+    border-radius: 15px;
+    padding: 10px 20px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: sticky;
+    top: 20px;
+    z-index: 100;
+    box-sizing: border-box;
+}
+
+nav > ul {
+    display: flex;
+    flex-direction: row;
+    list-style: none;
+    gap: 15px;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+nav > ul > li {
+    padding: 0;
+}
+
+nav > ul > li > a {
+    display: inline-block;
+    color: #4a2e2b;
+    text-decoration: none;
+    font-weight: 600;
+    padding: 10px 20px;
+    border-radius: 10px;
+    font-size: 1.05rem;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+}
+
+nav > ul > li:hover > a {
+    background-color: #efc2b1;
+    color: #4a2e2b;
+}
+
+/* Onglet actif d'origine */
+.d1 {
+    background-color: #f4d9c6;
+    border-radius: 10px;
+}
+.d1 a {
+    color: #4a2e2b !important;
+}

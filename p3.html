@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="utf-8">
+    <title>Portfolio - Installation Debian</title>
+    <link rel="stylesheet" href="p.css" media="screen">
+    <link rel="stylesheet" href="footer.css" media="screen">
+    <link rel="stylesheet" href="fond.css">
+    <link rel="stylesheet" href="lightbox.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/simple-line-icons/2.5.5/css/simple-line-icons.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+
+<body>
+
+    <main class="p1">
+        <a class="retour" href="project.html">Retour</a>
+        <section class="content">
+            <img src="debian_rond.png" alt="logo debian">
+            <article>
+                <h1>Installation d’un poste pour le développement</h1>
+                <ul>
+                    <li class="icon icon-people"> Individuel</li>
+                    <li><strong>Compétences techniques : </strong></li>
+                    <li>Maîtrise de la console Linux</li>
+                    <li><strong>Date : </strong></li>
+                    <li>2024</li>
+                    <li><strong>Le projet en quelques mots : </strong></li>
+                    <li id="text">J’ai appris à installer et configurer un poste de travail ainsi que des outils de développement sur une machine virtuelle. J’ai installé les systèmes d’exploitation Debian 11 et Debian 12 ainsi que les IDE NetBean et IntelliJ IDEA. <br> L’objectif était d’être capable de le faire en autonomie et d’être capable de créer une carte mentale explicative de l’installation. <br>Le projet s’est déroulé sur 3 jours.</li>
+                </ul>
+                <p><strong>Le projet en images : </strong></p>
+                <section class="galerie">
+                    <img src="debian1.png" alt="Installation Debian 1">
+                    <img src="debian2.png" alt="Installation Debian 2">
+                </section>
+            </article>
+        </section>
+    </main>
+
+    <div id="footer-placeholder"></div>
+
+    <script>
+        fetch('footer.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('footer-placeholder').innerHTML = data;
+            });
+    </script>
+
+    <div id="lightbox" class="lightbox">
+        <span class="lightbox-close">&times;</span>
+        <img id="lightbox-img" src="" alt="Image en grand">
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const lightbox = document.getElementById("lightbox");
+            const lightboxImg = document.getElementById("lightbox-img");
+            const galleryImages = document.querySelectorAll(".galerie img");
+
+            galleryImages.forEach(image => {
+                image.style.cursor = "zoom-in";
+                image.addEventListener("click", function() {
+                    lightboxImg.src = this.src;
+                    lightbox.classList.add("active");
+                });
+            });
+
+            lightbox.addEventListener("click", function(e) {
+                if (e.target !== lightboxImg) {
+                    lightbox.classList.remove("active");
+                }
+            });
+        });
+    </script>
+</body>
+</html>

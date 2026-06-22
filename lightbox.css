@@ -1,0 +1,80 @@
+/* ==========================================================================
+   SYSTÈME DE LIGHTBOX (ZOOM IMAGES AU CLIC)
+   ========================================================================== */
+.lightbox {
+    display: none; /* Caché par défaut */
+    position: fixed;
+    z-index: 9999; /* Très important : au-dessus de tout le reste */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.85); /* Fond noir semi-transparent */
+    backdrop-filter: blur(5px); /* Flou artistique en arrière-plan */
+    justify-content: center; /* Centre horizontalement */
+    align-items: center; /* Centre verticalement */
+    cursor: zoom-out;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+/* Classe ajoutée par JavaScript pour afficher la lightbox */
+.lightbox.active {
+    display: flex;
+    opacity: 1;
+}
+
+/* L'image zoomée */
+.lightbox img {
+    max-width: 90%;
+    max-height: 85%;
+    border-radius: 12px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+    transform: scale(0.9);
+    transition: transform 0.3s ease;
+}
+
+/* Effet de zoom lors de l'apparition */
+.lightbox.active img {
+    transform: scale(1);
+}
+
+/* Bouton pour fermer */
+.lightbox-close {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    color: #ffffff;
+    font-size: 40px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: color 0.2s;
+}
+
+.lightbox-close:hover {
+    color: #f4d9c6;
+}
+
+/* --- Lightbox --- */
+.i1 .galerie {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.i1 .galerie img {
+    flex: 1 1 200px; /* S'adapte et garde une taille minimale */
+    height: 180px;   /* Hauteur fixe pour l'uniformité */
+    object-fit: cover; /* C'est ce qui fait la magie : recadre sans déformer */
+    object-position: center; /* Centre l'image dans le carré */
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+    transition: all 0.3s ease;
+    cursor: zoom-in;
+}
+
+.i1 .galerie img:hover {
+    transform: scale(1.03);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+}

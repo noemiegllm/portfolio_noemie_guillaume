@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+	<meta charset="utf-8">
+	<title>Portfolio</title>
+	<link rel="stylesheet" href="Portfolio.css" media="screen">
+  <link rel="stylesheet" href="fond.css">
+  <link rel="stylesheet" href="footer.css">
+  <link rel="stylesheet" href="project_interet.css">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/simple-line-icons/2.5.5/css/simple-line-icons.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+
+<body>
+    <nav>
+        <ul>
+            <li><a href="index.html">Me connaitre</a></li>
+            <li class="d1"><a href="project.html">Projets</a></li>
+            <li><a href="interets.html">Centres d'intérêts</a></li>
+            <li><a href="contact.html">Me contacter</a></li>   
+        </ul>
+    </nav>
+
+    <main class="acceuil">
+          <article><a href="p7.html">
+            <img src="gir_tevoir.png" alt="html">
+            <h1>Création et déploiement d'une application</h1>
+            </a>  
+          </article>
+
+          <article><a href="p8.html">
+            <img src="synfony_logo.webp" alt="html">
+            <h1>Développement d'une application complexe</h1>
+            </a>  
+          </article>
+          <article><a href="p1.html">
+            <img src="eco_rond.png" alt="html">
+            <h1>Recueil de besoins / Découverte de l’environnement économique et écologique / Création d’un site web</h1>
+            </a>  
+          </article>
+
+          <article><a href="p2.html">
+            <img src="sandbox_logo.png" alt="html" >
+            <h1>Physic sand box : création d’un jeu éducatif</h1>
+            </a>
+          </article>
+
+          <article><a href="p3.html">
+            <img src="debian_rond.png" alt="html">
+            <h1>Installation d’un poste pour le développement </h1>
+            </a>
+          </article>
+
+          <article><a href="p4.html">
+            <img src="ia_rond.png" alt="html">
+            <h1>Implémentation d’un besoin client / Comparaison d’approches algorithmiques</h1>
+            </a>
+          </article>
+
+          <article><a href="p5.html">
+            <img src="profil_rond.png" alt="html">
+            <h1>Portfolio</h1>
+            </a>
+          </article>
+          
+          <article><a href="p6.html">
+            <img src="sql_rond.webp" alt="html">
+            <h1>Création d’une base de données / Exploitatation d’une base de données Installation d’un service réseaux</h1>
+          </a>
+          </article>
+    </main>
+
+
+ 
+<div id="footer-placeholder"></div>
+
+<script>
+    fetch('footer.html')
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById('footer-placeholder').innerHTML = data;
+        });
+</script>
+
+</body>

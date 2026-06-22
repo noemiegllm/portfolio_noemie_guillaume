@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="utf-8">
+    <title>Portfolio</title>
+    <link rel="stylesheet" href="p.css" media="screen">
+    <link rel="stylesheet" href="fond.css">
+    <link rel="stylesheet" href="lightbox.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/simple-line-icons/2.5.5/css/simple-line-icons.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="footer.css" media="screen">
+</head>
+
+<body>
+
+    <main class="p1">
+        <a class="retour" href="project.html">Retour</a>
+        <section class="content">
+            <img src="profil_rond.png" alt="Portfolio">
+            <article>
+                <h1>Portfolio</h1>
+                <ul>
+                    <li class="icon icon-people"> Individuel</li>
+                    <li><strong>Compétences techniques : </strong></li>
+                    <li>HTML, CSS</li>
+                    <li><strong>Date : </strong></li>
+                    <li>2024-2025</li>
+                    <li><strong>Le projet en quelques mots : </strong></li>
+                    <li id="text">Depuis que j'ai découvert l'informatique, j'ai participé à de multiples projets. Dans mon portfolio, j'ai rassemblé mes projets représentatifs de mes compétences.<br> Ce portfolio dans lequel vous naviguez représente aussi mes capacités : j'ai réfléchi à son design, son ergonomie ainsi que son contenu.</li>
+                </ul>
+                <p><strong>Le projet en images : </strong></p>
+                <section class="galerie">
+                    <img src="wireframe_portfolio.png" alt="Wireframe du portfolio">
+                </section>
+            </article>
+        </section>
+    </main>
+
+    <div id="footer-placeholder"></div>
+
+    <script>
+        fetch('footer.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('footer-placeholder').innerHTML = data;
+            });
+    </script>
+
+    <div id="lightbox" class="lightbox">
+        <span class="lightbox-close">&times;</span>
+        <img id="lightbox-img" src="" alt="Image en grand">
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const lightbox = document.getElementById("lightbox");
+            const lightboxImg = document.getElementById("lightbox-img");
+            const galleryImages = document.querySelectorAll(".galerie img");
+
+            galleryImages.forEach(image => {
+                image.style.cursor = "zoom-in";
+                image.addEventListener("click", function(e) {
+                    e.preventDefault(); 
+                    lightboxImg.src = this.src;
+                    lightboxImg.alt = this.alt;
+                    lightbox.classList.add("active");
+                });
+            });
+
+            lightbox.addEventListener("click", function(e) {
+                if (e.target !== lightboxImg) {
+                    lightbox.classList.remove("active");
+                    setTimeout(() => { lightboxImg.src = ""; }, 300);
+                }
+            });
+        });
+    </script>
+</body>
+</html>

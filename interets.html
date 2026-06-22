@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+	<meta charset="utf-8">
+	<title>Portfolio</title>
+	<link rel="stylesheet" href="Portfolio.css" media="screen">
+        <link rel="stylesheet" href="footer.css">
+        <link rel="stylesheet" href="fond.css">
+        <link rel="stylesheet" href="project_interet.css"
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/simple-line-icons/2.5.5/css/simple-line-icons.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+
+<body>
+    <nav>
+        <ul>
+            <li><a href="index.html">Me connaitre</a></li>
+            <li><a href="project.html">Projets</a></li>
+            <li class="d1"><a href="interets.html">Centres d'intérêts</a></li>
+            <li><a href="contact.html">Me contacter</a></li>   
+        </ul>
+    </nav>
+
+    <main class="acceuil">
+          <article><a href="i1.html">
+            <img src="crochet.png" alt="crochet">
+                        <h1>Crochet</h1>           
+
+             </a>
+          </article>
+
+          <article><a href="i2.html">
+            <img src="randonnee.png" alt="randonnee" >
+                        <h1>Randonnée</h1>
+
+            </a>
+          </article>
+
+          <article><a href="i3.html">
+            <img src="ski.png" alt="ski">
+                        <h1>Ski de piste</h1>
+
+            </a>
+          </article>
+
+          <article><a href="i4.html">
+            <img src="camera.png" alt="camera">
+                        <h1>Macro photographie</h1>
+
+            </a>
+          </article>
+
+          <article><a href="i5.html">
+            <img src="gaming.png" alt="gaming">
+                        <h1>Gaming</h1>
+
+            </a>
+          </article>
+          
+          <article><a href="i6.html">
+            <img src="sports.png" alt="sport">
+                        <h1>Sport</h1>
+
+            </a>
+          </article>
+    </main>
+   <div id="footer-placeholder"></div>
+
+<script>
+    fetch('footer.html')
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById('footer-placeholder').innerHTML = data;
+        });
+</script>
+</body>

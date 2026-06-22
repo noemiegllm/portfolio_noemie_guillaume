@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="utf-8">
+    <title>Portfolio - Physic Sandbox</title>
+    <link rel="stylesheet" href="p.css" media="screen">
+    <link rel="stylesheet" href="footer.css" media="screen">
+    <link rel="stylesheet" href="fond.css">
+    <link rel="stylesheet" href="lightbox.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/simple-line-icons/2.5.5/css/simple-line-icons.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+
+<body>
+
+    <main class="p1">
+        <a class="retour" href="project.html">Retour</a>
+        <section class="content">
+            <img src="sandbox_logo.png" alt="logo sandbox">
+            <article>
+                <h1>Physic sand box : création d’un jeu éducatif</h1>
+                <ul>
+                    <li class="icon icon-people"> Groupe de 4</li>
+                    <li><strong>Compétences techniques : </strong></li>
+                    <li>Python</li>
+                    <li><strong>Date : </strong></li>
+                    <li>2024</li>
+                    <li><strong>Le projet en quelques mots : </strong></li>
+                    <li id="text">J'ai participé au concours "Les trophées NSI", où nous devions réaliser un projet principalement en Python. Nous avons choisi de créer un "bac à sable" : un environnement interactif qui simule les principes fondamentaux de la physique. L'utilisateur peut manipuler divers objets, tels que des fusées et des ballons dans différents milieux comme l'océan, la Terre ou l'espace. <br>Le projet s'est déroulé sur 2 mois et demi. Nous sommes arrivés finalistes nationaux pour le "prix de l'originalité".</li>
+                </ul>
+                <p><strong>Le projet en images : </strong></p>
+                <p>Vidéo explicative : <a href="https://tube-sciences-technologies.apps.education.fr/w/6CQUrUEFahREyb5wLHm2re">Lien vers la vidéo</a></p>
+                
+                <section class="galerie">
+                    <img src="sandbox_1.jpg" alt="Sandbox image 1">
+                    <img src="sandbox_2.jpg" alt="Sandbox image 2">
+                    <img src="sandbox_3.png" alt="Sandbox image 3">
+                </section>
+            </article>
+        </section>
+    </main>
+
+    <div id="footer-placeholder"></div>
+
+    <script>
+        fetch('footer.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('footer-placeholder').innerHTML = data;
+            });
+    </script>
+
+    <div id="lightbox" class="lightbox">
+        <span class="lightbox-close">&times;</span>
+        <img id="lightbox-img" src="" alt="Image en grand">
+    </div>
+
+    <script>
+        const lightbox = document.getElementById("lightbox");
+        const lightboxImg = document.getElementById("lightbox-img");
+        const images = document.querySelectorAll(".galerie img");
+
+        images.forEach(img => {
+            img.addEventListener("click", () => {
+                lightbox.classList.add("active");
+                lightboxImg.src = img.src;
+            });
+        });
+
+        // Fermer la lightbox au clic
+        lightbox.addEventListener("click", () => {
+            lightbox.classList.remove("active");
+        });
+    </script>
+</body>
+</html>
